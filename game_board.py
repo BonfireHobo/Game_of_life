@@ -20,7 +20,7 @@ class GameBoard:
         self.generate()
 
 
-    # Returns current generation
+    # Returns info about game
     def __str__(self):
         return (f"Generation: {self.generation} // Cells alive: {self.total_cells_alive()}")
 
@@ -29,7 +29,7 @@ class GameBoard:
     def generate(self) :
         for i in range(self.row):
             for j in range(self.column):
-                birth_status = randint(0, 2)
+                birth_status = randint(0, 2)    # 1/3 Chance of cell being alive at birth
                 if birth_status == 2:
                     self.board[i][j].set_alive()    
 
