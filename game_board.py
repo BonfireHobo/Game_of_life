@@ -48,12 +48,12 @@ class GameBoard:
         self.new_dead_cells = []
         self.new_alive_cells = []
 
-        #Find neighbor to all cells
+        # Find neighbor to all cells
         for i in range(self.row):
             for j in range(self.column):
                 self.find_neighbor(i, j)
                 
-        #Changing cell status
+        # Changing cell status
         for cell in self.new_dead_cells:
             cell.set_dead()
 
@@ -81,12 +81,10 @@ class GameBoard:
                 except IndexError:
                     continue
 
-        # Checks with game rules for living cell
+        # Checks with game rules for cell
         if cell_status == True:
             if alive_neighbors < 2 or alive_neighbors > 3:
                 self.new_dead_cells.append(self.board[row][column])
-
-        # Checks with game rules for death cell
         elif cell_status == False and alive_neighbors == 3:
             self.new_alive_cells.append(self.board[row][column])
 
