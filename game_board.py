@@ -80,7 +80,7 @@ class GameBoard:
         self.generation += 1
 
 
-    # Updates next generation of cells
+    # Find neighbors to cell
     def find_neighbor(self, row, column):
         # Count of living neighbors
         alive_neighbors = 0
@@ -88,14 +88,18 @@ class GameBoard:
         # Loop through neighbors
         for i in range(-1, 2):
             for j in range(-1, 2):
-                try:  # Try to find alive neighbor except if neighbor dosent exist
-                    if i == 0 and j == 0:  # Make sure it does not count it self
-                        continue
-                    elif self.board[row + i][column + j].is_alive() == True:
-                        alive_neighbors += 1
-                except IndexError:
-                    continue
-        
+                neighbor_row = row + i
+                neighbor_column = column + j
+
+                # Do not count itself
+                if not (neighbor_row == row and neighbor_column == column):
+                    # Check if it's inside the map
+                    if not (neighbor_row < 0 or neighbor_row > self.row-1 or
+                            neighbor_column < 0 or neighbor_column > self.column-1):
+                            # Check if its alive
+                        if self.board[neighbor_row][neighbor_column].is_alive() == True:
+                            alive_neighbors += 1
+
         # Returns living neighbors
         return alive_neighbors
 
