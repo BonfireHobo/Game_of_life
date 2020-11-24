@@ -88,7 +88,7 @@ class GameBoard:
         # Loop through neighbors
         for i in range(-1, 2):
             for j in range(-1, 2):
-                try:  # Try to find alive neighbor except if neighbor dosent exis
+                try:  # Try to find alive neighbor except if neighbor dosent exist
                     if i == 0 and j == 0:  # Make sure it does not count it self
                         continue
                     elif self.board[row + i][column + j].is_alive() == True:

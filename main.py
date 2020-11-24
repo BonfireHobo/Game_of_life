@@ -2,7 +2,7 @@ from game_board import GameBoard
 
 def main():
     # Game Info // Create game
-    game = GameBoard(10, 20) # (row, column)
+    game = GameBoard(5, 5) # (row, column)
     exit_game = False
     
     # Game loop
