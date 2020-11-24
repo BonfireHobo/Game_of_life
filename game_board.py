@@ -62,11 +62,11 @@ class GameBoard:
                 alive_neighbors = self.find_neighbor(i, j)
 
                 # Checks game rules for living cell
-                if cell_status == True:
+                if cell_status:
                     if alive_neighbors < 2 or alive_neighbors > 3:
                         new_dead_cells.append(self.board[i][j])
                 # Check game rules for dead cell
-                elif cell_status == False and alive_neighbors == 3:
+                elif not cell_status and alive_neighbors == 3:
                     new_alive_cells.append(self.board[i][j])
 
         # Changing cell status

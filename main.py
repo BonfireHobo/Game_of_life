@@ -12,8 +12,8 @@ def main():
         print(game)
 
         # Update or quit
-        continue_or_not = input("Press enter to continue, or type 'q' and press enter to stop\n")
-        if continue_or_not.lower() == "q":
+        _continue = input("Press enter to continue, or type 'q' and press enter to stop\n")
+        if _continue.lower() == "q":
             exit_game = True
         else:
             game.update()
