@@ -16,11 +16,9 @@ class Celle:
 
     # Check if cell is alive
     def is_alive(self):
-        status = True if self.status else False
-        return status
+        return self.status
 
 
     # Return  current sign for cell
-    def get_sign(self):
-        sign = "0" if self.status else "."
-        return sign
+    def get_sign(self): 
+        return "0" if self.status else "."
